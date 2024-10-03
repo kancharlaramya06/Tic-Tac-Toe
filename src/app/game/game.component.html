@@ -1,0 +1,12 @@
+<div class="game-container">
+  <p *ngIf="winner">{{winner}} Wins!</p>
+  <p *ngIf="!winner && squares.includes(null)">Current Player:{{getPlayer()}}</p>
+  <p *ngIf="!winner && !squares.includes(null)">It's a Draw</p> 
+  <div class="board">
+    <div *ngFor="let square of squares; let i=index" class="square" (click)="makeMove(i)" [class.disabled]="!!square || winner">
+      {{square}}
+    </div>
+  </div>
+
+  <button (click)="resetGame()">Reset Game</button>
+</div>
